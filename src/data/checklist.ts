@@ -702,5 +702,20 @@ export const engineStart: Data[] = [
     left: "Hydraulics",
     right: "Check PSI > 3000",
     isSub: true,
+  },
+  {
+    id: 130,
+    left: "L ENG BLD AIR Selector",
+    right: "LP",
+  },
+  {
+    id: 131,
+    left: "R ENG BLD AIR Selector",
+    right: "LP",
+  },
+  {
+    id: 132,
+    left: "CKPC/CAB PAC",
+    right: "ON"
   }
 ]
