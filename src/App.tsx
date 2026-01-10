@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Checklist } from "./type/checklist";
 import {
   preliminaryCockpitChecklistData,
@@ -11,13 +11,13 @@ import ChecklistComponent from "./components/ChecklistAbbreviations";
 import { Check } from "lucide-react";
 import { useXPlane } from "./hooks/useXplane";
 
-const DATAREFS = ["sim/cockpit2/controls/parking_brake_ratio"]
+const DATAREFS = ["sim/cockpit2/controls/parking_brake_ratio", "sim/cockpit2/switches/door_open"]
 
 const App = () => {
 
   const data = useXPlane(DATAREFS)
 
-  console.log(data)
+  
 
   const CHECKLIST_CONFIG = [
     {
@@ -55,6 +55,34 @@ const App = () => {
     });
     return initialState;
   });
+
+  useEffect(() => {
+    // 1. On identifie la checklist actuellement active (ex: "preliminary")
+    const activeConfig = CHECKLIST_CONFIG[step - 1];
+    if (!activeConfig) return;
+
+    const currentListId = activeConfig.id;
+    const currentItems = checklists[currentListId]
+
+    // 2. On cherche si un item non-coché peut être validé maintenant
+    const itemsToUpdate = currentItems.filter(item => 
+      !item.checked && 
+      item.validate &&
+      item.validate(data)
+    )
+
+    if (itemsToUpdate.length > 0) {
+      setChecklists(prev => ({
+        ...prev,
+        [currentListId]: prev[currentListId].map(item => {
+          if (itemsToUpdate.find(u => u.id === item.id)) {
+            return { ...item, checked: true}
+          }
+          return item;
+        })
+      }))
+    }
+  }, [data, step])
 
   const toggleItem = (listId: string, itemId: number) => {
     setChecklists((prev) => ({

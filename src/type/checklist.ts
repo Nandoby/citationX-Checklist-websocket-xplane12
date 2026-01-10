@@ -7,6 +7,7 @@ export interface Checklist {
   checked?: boolean
   id: number
   tooltip?: string
+  validate?: (data: Record<string, any>) => boolean;
 }
 
 export interface Props {

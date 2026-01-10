@@ -3,54 +3,61 @@ import type { Checklist } from "../type/checklist";
 export interface Data extends Checklist {
   isSub?: boolean;
   id: number;
+  
 }
 
-export const checklistAbbreviationsData: Data[] = [
-  {
-    id: 0,
-    left: "Cockpit Side Panel",
-    right: "CSP-L/CSP-R",
-  },
-  {
-    id: 1,
-    left: "Control Display Unit",
-    right: "CDU",
-    color: "amber",
-  },
-  {
-    id: 2,
-    left: "Engine Indicating and Crew Alerting System",
-    right: "EICAS",
-    color: "amber",
-  },
-  { id: 3, left: "Flight Management Computer", right: "FMC", color: "amber" },
-  {
-    id: 4,
-    left: "Full Authority Digital Engine Control",
-    right: "FADEC",
-    color: "amber",
-  },
-  {
-    id: 5,
-    left: "Instrument Panel (Left/Right/Upper)",
-    right: "IP-L/IP-R/IP-U",
-    color: "amber",
-  },
-  { id: 6, left: "Long Range Cruise", right: "LRC", color: "amber" },
-  { id: 7, left: "Multifonction Display", right: "MFD", color: "amber" },
-  { id: 8, left: "Overhead Panel", right: "OHP", color: "amber" },
-  { id: 9, left: "Pedestal", right: "PED", color: "amber" },
-  { id: 10, left: "Primary Flight Display", right: "PFD", color: "amber" },
-  {
-    id: 11,
-    left: "Right/Left Line Select Key (Number) button",
-    right: "R/L LSK Number",
-    color: "amber",
-  },
-];
+// export const checklistAbbreviationsData: Data[] = [
+//   {
+//     id: 0,
+//     left: "Cockpit Side Panel",
+//     right: "CSP-L/CSP-R",
+//   },
+//   {
+//     id: 1,
+//     left: "Control Display Unit",
+//     right: "CDU",
+//     color: "amber",
+//   },
+//   {
+//     id: 2,
+//     left: "Engine Indicating and Crew Alerting System",
+//     right: "EICAS",
+//     color: "amber",
+//   },
+//   { id: 3, left: "Flight Management Computer", right: "FMC", color: "amber" },
+//   {
+//     id: 4,
+//     left: "Full Authority Digital Engine Control",
+//     right: "FADEC",
+//     color: "amber",
+//   },
+//   {
+//     id: 5,
+//     left: "Instrument Panel (Left/Right/Upper)",
+//     right: "IP-L/IP-R/IP-U",
+//     color: "amber",
+//   },
+//   { id: 6, left: "Long Range Cruise", right: "LRC", color: "amber" },
+//   { id: 7, left: "Multifonction Display", right: "MFD", color: "amber" },
+//   { id: 8, left: "Overhead Panel", right: "OHP", color: "amber" },
+//   { id: 9, left: "Pedestal", right: "PED", color: "amber" },
+//   { id: 10, left: "Primary Flight Display", right: "PFD", color: "amber" },
+//   {
+//     id: 11,
+//     left: "Right/Left Line Select Key (Number) button",
+//     right: "R/L LSK Number",
+//     color: "amber",
+//   },
+// ];
 
 export const preliminaryCockpitChecklistData: Data[] = [
-  { id: 12, left: "Aircraft Doors", right: "OPEN" },
+  { id: 12, left: "Aircraft Doors", right: "OPEN", validate: (d) => {
+    const val = d["sim/cockpit2/switches/door_open"];
+    if (Array.isArray(val)) {
+      return val[0] === 1
+    }
+    return val === 1;
+  } },
   { id: 13, left: "Oxygen Quantity", right: "Check in green arc" },
   { id: 14, left: "Landing Gear Handle", right: "Down" },
   { id: 15, left: "Speebrake Handle", right: "Zero" },
