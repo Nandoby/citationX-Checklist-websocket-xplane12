@@ -35,28 +35,33 @@ const RowItem: React.FC<Props> = ({
   onToggle,
   tooltip,
 }) => {
+  const handleClick = () => {
+    if (!subtitle && onToggle) {
+      onToggle();
+    }
+  };
+
   return (
     <div
       className={`flex items-baseline *:p-2 text-sm cursor-pointer select-none  ${
-        subtitle ? "flex-wrap" : "flex-nowrap hover:bg-slate-300"
+        subtitle ? "flex-wrap" : "flex-nowrap hover:bg-slate-200"
       } ${
         checked && !subtitle
           ? "line-through bg-slate-300 text-slate-400"
           : "bg-slate-100 text-slate-600"
       }`}
-      onClick={onToggle}
+      onClick={handleClick}
     >
       {subtitle ? (
         <>
           <span className="w-full text-slate-600 font-medium bg-blue-200/50 uppercase">
             {subtitle}
             {tooltip && (
-            <div className="tooltip self-center" data-tip={tooltip}>
-              <CircleQuestionMark className="w-3.5 h-3.5 text-amber-700 ml-3 hover:text-amber-500" />
-            </div>
-          )}
+              <div className="tooltip self-center" data-tip={tooltip}>
+                <CircleQuestionMark className="w-3.5 h-3.5 text-amber-700 ml-3 hover:text-amber-500" />
+              </div>
+            )}
           </span>
-          
         </>
       ) : (
         <>
