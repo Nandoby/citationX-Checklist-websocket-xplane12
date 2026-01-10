@@ -288,7 +288,7 @@ export const cockpitPreparation: Data[] = [
     subtitle: "Lights Panel",
   },
   {
-    id: 61,
+    id: 60,
     left: "Emergency Exit Lights",
     right: "On (Middle)",
     isSub: true,
@@ -296,10 +296,17 @@ export const cockpitPreparation: Data[] = [
       "Red Light on. Illuminates all the emergency evacuation path lights and signs",
   },
   {
-    id: 62,
+    id: 61,
     left: "Emergency Exit Lights",
     right: "Up (Armed)",
     isSub: true,
+  },
+  {
+    id: 62,
+    left: "Instrument Lights (FLOOD LTS, EL, LH, CTR)",
+    right: "Set",
+    isSub: true,
+    tooltip: "12 o'clock position suggested"
   },
   {
     id: 63,
