@@ -139,7 +139,7 @@ const App = () => {
                   key={config.id}
                   onClick={() => setStep(stepNumber)}
                   className={`btn justify-between ${
-                    step === stepNumber ? "btn-active" : "btn-primary"
+                    step === stepNumber && checked < total ?  "btn-active" : checked === total ? "btn-success" :  "btn-primary"
                   }`}
                 >
                   {stepNumber} - {config.title}
