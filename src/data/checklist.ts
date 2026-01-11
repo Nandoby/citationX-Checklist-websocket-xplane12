@@ -735,5 +735,31 @@ export const beforeTaxi: Data[] = [
     id: 134,
     left: "Flaps",
     right: "SET FOR TAKEOFF",
+  },
+  {
+    id: 135,
+    left: "Elevator/Pich Trim",
+    right: "Set for Takeoff",
+  },
+  {
+    id: 136,
+    left: "Rudder & Aileron Trim",
+    right: "Neutral",
+  },
+  {
+    id: 137,
+    left: "Flight Controls/Speedbrake",
+    right: "test",
+    tooltip: "See on EICAS/CTRL POS Page"
+  },
+  {
+    id: 138,
+    left: "Taxi Light",
+    right: "On"
+  },
+  {
+    id: 139,
+    left: "Taxi Clearance (Tower)",
+    right: "request"
   }
 ]
