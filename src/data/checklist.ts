@@ -996,3 +996,8 @@ export const afterTakeOffClimb: Data[] = [
   { id: 183, left: "ATC Transfer to Approach", right: "Proceed" },
   { id: 184, left: "ATC Transfer to Center", right: "Proceed" },
 ];
+
+export const cruise: Data[] = [
+  { id: 185, left: "Throttle Lever", right: "CRU POS (N1 ABOUT 85%) or AS REQUIRED" },
+  { id: 186, left: "Fuel, Flight Performance & Weather", right: "Monitor" }
+]
