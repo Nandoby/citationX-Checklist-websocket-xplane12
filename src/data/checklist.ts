@@ -1018,3 +1018,29 @@ export const beforeDescent: Data[] = [
   { id: 190, left: "Descent Clearance (Center)", right: "Request" },
   { id: 191, left: "Altitude Knob", right: "Set to cleared Alt" },
 ];
+
+export const descent: Data[] = [
+  { id: 192, left: "", right: "", subtitle: "@ Top of Descent" },
+  {
+    id: 193,
+    left: "Vertical Navigation Mode",
+    right: "Activate",
+    isSub: true,
+    tooltip:
+      "Suggested VNAV. To activate VNAV, activate first any other vertical navigation mode (FLC or VS) and after this engage VNAV",
+  },
+  { id: 194, left: "", right: "", subtitle: "@ FL180" },
+  { id: 195, left: "Eng Sync", right: "Off", isSub: true },
+  { id: 196, left: "", right: "", subtitle: "APU Panel" },
+  { id: 197, left: "Master", right: "On", isSub: true },
+  { id: 198, left: "Apu Start", right: "Up and Let Go", isSub: true },
+  { id: 199, left: "Generator", right: "On", isSub: true },
+  { id: 200, left: "Bleed Air Max Cool", right: "Off", isSub: true },
+  { id: 201, left: "", right: "", subtitle: "@ FL100" },
+  { id: 202, left: "Landing Light", right: "On", isSub: true },
+  { id: 203, left: "Seat Belts Lts", right: "On", isSub: true },
+  { id: 204, left: "", right: "", subtitle: "@ Transition Level" },
+  { id: 205, left: "Altimeter", right: "Set local", isSub: true },
+  { id: 206, left: "ATC Transfer to Approach (Approach)", right: "Proceed" },
+  { id: 207, left: "ATC Transfer to Tower (Tower)", right: "Proceed" },
+];
