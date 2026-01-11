@@ -7,6 +7,7 @@ import {
   preflightProcedure,
   engineStart,
   beforeTaxi,
+  taxi
 } from "./data/checklist";
 import ChecklistComponent from "./components/ChecklistAbbreviations";
 import { Check } from "lucide-react";
@@ -42,7 +43,8 @@ const App = () => {
       data: preflightProcedure,
     },
     { id: "engineStart", title: "Engine Start", data: engineStart },
-    { id: "beforeTaxi", title: "Before Taxi", data: beforeTaxi }
+    { id: "beforeTaxi", title: "Before Taxi", data: beforeTaxi },
+    { id: "taxi", title: "Taxi", data: taxi }
   ];
 
   const [step, setStep] = useState<number>(1);

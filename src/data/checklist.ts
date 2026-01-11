@@ -762,4 +762,46 @@ export const beforeTaxi: Data[] = [
     left: "Taxi Clearance (Tower)",
     right: "request"
   }
+];
+
+export const taxi: Data[] = [
+  {
+    id: 140,
+    left: "Park Break",
+    right: "Release"
+  },
+  {
+    id: 141,
+    left: "Throttle Lever",
+    right: "For Taxi (Minimal)",
+    tooltip: "Ramps/Apron Area/Curves: 10 knots - Close to other aircrafts/vehicles/stands: 20 knots - Maximum: 30 knots"
+  },
+  {
+    id: 142,
+    left: "Throttle Lever",
+    right: "Reverse Test (while taxiing)"
+  },
+  {
+    id: 143,
+    left: "",
+    right: "",
+    subtitle: "At Hold Point"
+  },
+  {
+    id: 144,
+    left: "Park break",
+    right: "Set",
+    isSub: true,
+  },
+  {
+    id: 145,
+    left: "EICAS",
+    right: "Check no red/amber messages",
+    isSub: true,
+  },
+  {
+    id: 146,
+    left: "ATC Take-Off Clearance (Tower)",
+    right: "Request"
+  }
 ]
