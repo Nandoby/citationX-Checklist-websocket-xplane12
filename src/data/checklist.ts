@@ -497,6 +497,11 @@ export const cockpitPreparation: Data[] = [
     id: 93,
     left: "ATC Flight Clearance (Delivery)",
     right: "request"
+  },
+  {
+    id: 93000,
+    left: "FMC",
+    right: "SETUP"
   }
 ];
 
