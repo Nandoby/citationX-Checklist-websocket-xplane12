@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# ✈️ Cessna Citation X - Interactive Checklist
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application web moderne et performante conçue pour assister les pilotes virtuels sur **Cessna Citation X (C750)**. L'interface offre une gestion fluide des procédures de vol.
 
-Currently, two official plugins are available:
+## ✨ Points forts de l'application
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Navigation par Phase** : Structure organisée selon les procédures réelles (Preliminary, Exterior Inspection, Cockpit Prep, etc.).
 
-## React Compiler
+- **Calcul de Progression** : Barre de progression dynamique et statistiques par étape
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Auto-Next Logic** : Passage intelligent à la checklist suivante dès qu'une section est complétée.
 
-## Expanding the ESLint configuration
+- **UI/UX Aéronautique** : Design épuré utilisant Tailwind CSS, avec prise en charge des tooltips d'aide au pilotage.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Architecture Scalable** : Code structuré pour accueillir prochainement une synchronisation en temps réel avec X-Plane.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Core** : React 18
+- **Langage** : TypeScript
+- **Style** : Tailwind CSS
+- **Icones** : Lucide-React
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Installation & Usage
+
+1. **Installation**
+
+```bash
+git clone https://github.com/votre-nom/citation-x-checklist.git
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Lancement**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+3. **Utilisation** : Cliquez sur les items pour les valider manuellement. La progression globale est mise à jour en haut de l'écran, et l'application vous guidera automatiquement vers la phase suivante.
+
+## 🔧 Structure des Données
+
+Le projet utilise un typage TypeScript pour garantir la fiabilité des données de checklist :
+
+```ts
+export interface Data {
+  id: number;
+  left: string;  // Action / System
+  right: string; // Etat attendu
+  subtitle?: string;
+  isSub?: boolean; // Indentation pour les sous-items
+  tooltip?: string;
+}
+```
+
+## 🛤 Road Map
+
+- [ ] **X-Plane DataRef Sync** : Connexion via WebSocket pour une auto-validation des systèmes (Batteries, Freins, Portes).
+- [ ] **Audio Feedback** : Annonces vocales des étapes de la checklist.
+- [ ] **Performance Data** : Calculateur de V-Speeds intégré.
