@@ -11,13 +11,13 @@ import ChecklistComponent from "./components/ChecklistAbbreviations";
 import { Check } from "lucide-react";
 import { useXPlane } from "./hooks/useXplane";
 
-const DATAREFS = ["sim/cockpit2/controls/parking_brake_ratio", "sim/cockpit2/switches/door_open"]
+const DATAREFS = [
+  "sim/cockpit2/controls/parking_brake_ratio",
+  "sim/cockpit2/switches/door_open",
+];
 
 const App = () => {
-
-  const data = useXPlane(DATAREFS)
-
-  
+  const data = useXPlane(DATAREFS);
 
   const CHECKLIST_CONFIG = [
     {
@@ -62,27 +62,41 @@ const App = () => {
     if (!activeConfig) return;
 
     const currentListId = activeConfig.id;
-    const currentItems = checklists[currentListId]
+    const currentItems = checklists[currentListId];
 
     // 2. On cherche si un item non-coché peut être validé maintenant
-    const itemsToUpdate = currentItems.filter(item => 
-      !item.checked && 
-      item.validate &&
-      item.validate(data)
-    )
+    const itemsToUpdate = currentItems.filter(
+      (item) => !item.checked && item.validate && item.validate(data)
+    );
 
     if (itemsToUpdate.length > 0) {
-      setChecklists(prev => ({
+      setChecklists((prev) => ({
         ...prev,
-        [currentListId]: prev[currentListId].map(item => {
-          if (itemsToUpdate.find(u => u.id === item.id)) {
-            return { ...item, checked: true}
+        [currentListId]: prev[currentListId].map((item) => {
+          if (itemsToUpdate.find((u) => u.id === item.id)) {
+            return { ...item, checked: true };
           }
           return item;
-        })
-      }))
+        }),
+      }));
     }
-  }, [data, step])
+  }, [data, step]);
+
+  // Transition automatique
+  useEffect(() => {
+    const activeConfig = CHECKLIST_CONFIG[step - 1];
+    if (!activeConfig) return;
+
+    const { checked, total } = getStats(activeConfig.id);
+
+    if (checked === total && total > 0 && step < CHECKLIST_CONFIG.length) {
+      const timer = setTimeout(() => {
+        setStep((prev) => prev + 1);
+      }, 800);
+
+      return () => clearTimeout(timer);
+    }
+  }, [checklists, step]);
 
   const toggleItem = (listId: string, itemId: number) => {
     setChecklists((prev) => ({
@@ -139,7 +153,11 @@ const App = () => {
                   key={config.id}
                   onClick={() => setStep(stepNumber)}
                   className={`btn justify-between ${
-                    step === stepNumber && checked < total ?  "btn-active" : checked === total ? "btn-success" :  "btn-primary"
+                    step === stepNumber && checked < total
+                      ? "btn-active"
+                      : checked === total
+                      ? "btn-success"
+                      : "btn-primary"
                   }`}
                 >
                   {stepNumber} - {config.title}
