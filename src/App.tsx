@@ -10,7 +10,8 @@ import {
   taxi,
   takeOff,
   afterTakeOffClimb,
-  cruise
+  cruise,
+  beforeDescent,
 } from "./data/checklist";
 import ChecklistComponent from "./components/ChecklistAbbreviations";
 import { Check } from "lucide-react";
@@ -49,8 +50,13 @@ const App = () => {
     { id: "beforeTaxi", title: "Before Taxi", data: beforeTaxi },
     { id: "taxi", title: "Taxi", data: taxi },
     { id: "takeOff", title: "Take-Off", data: takeOff },
-    { id: "afterTakeOffClimb", title: "After Take-Off & Climb", data: afterTakeOffClimb },
-    { id: "cruise", title: "Cruise", data: cruise }
+    {
+      id: "afterTakeOffClimb",
+      title: "After Take-Off & Climb",
+      data: afterTakeOffClimb,
+    },
+    { id: "cruise", title: "Cruise", data: cruise },
+    { id: "beforeDescent", title: "Before Descent", data: beforeDescent },
   ];
 
   const [step, setStep] = useState<number>(1);
@@ -119,7 +125,7 @@ const App = () => {
 
   const getStats = (listId: string) => {
     const list = checklists[listId];
-    if (!list) return { checked: 0, total: 0 }
+    if (!list) return { checked: 0, total: 0 };
 
     const realItems = list.filter((i) => !i.subtitle && i.left.trim() !== "");
     return {

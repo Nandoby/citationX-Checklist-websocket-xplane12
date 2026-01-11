@@ -998,6 +998,23 @@ export const afterTakeOffClimb: Data[] = [
 ];
 
 export const cruise: Data[] = [
-  { id: 185, left: "Throttle Lever", right: "CRU POS (N1 ABOUT 85%) or AS REQUIRED" },
-  { id: 186, left: "Fuel, Flight Performance & Weather", right: "Monitor" }
-]
+  {
+    id: 185,
+    left: "Throttle Lever",
+    right: "CRU POS (N1 ABOUT 85%) or AS REQUIRED",
+  },
+  { id: 186, left: "Fuel, Flight Performance & Weather", right: "Monitor" },
+];
+
+export const beforeDescent: Data[] = [
+  {
+    id: 187,
+    left: "",
+    right: "",
+    subtitle: "At least 10 minutes before TOD or before last enroute waypoint",
+  },
+  { id: 188, left: "VHF Communications & Navigation Radios", right: "set" },
+  { id: 189, left: "RA/BARO MINIMUMS", right: "Set" },
+  { id: 190, left: "Descent Clearance (Center)", right: "Request" },
+  { id: 191, left: "Altitude Knob", right: "Set to cleared Alt" },
+];
