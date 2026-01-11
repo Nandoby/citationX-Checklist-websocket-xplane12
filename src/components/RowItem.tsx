@@ -43,8 +43,10 @@ const RowItem: React.FC<Props> = ({
 
   return (
     <div
-      className={`flex items-baseline *:p-2 text-sm cursor-pointer select-none  ${
-        subtitle ? "flex-wrap" : "flex-nowrap hover:bg-slate-200"
+      className={`flex items-baseline *:p-2 text-sm  select-none  ${
+        subtitle
+          ? "flex-wrap cursor-default"
+          : "flex-nowrap hover:bg-slate-200 cursor-pointer"
       } ${
         checked && !subtitle
           ? "line-through bg-slate-300 text-slate-400"

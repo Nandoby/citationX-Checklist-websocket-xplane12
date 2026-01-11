@@ -3,7 +3,6 @@ import type { Checklist } from "../type/checklist";
 export interface Data extends Checklist {
   isSub?: boolean;
   id: number;
-  
 }
 
 // export const checklistAbbreviationsData: Data[] = [
@@ -51,13 +50,18 @@ export interface Data extends Checklist {
 // ];
 
 export const preliminaryCockpitChecklistData: Data[] = [
-  { id: 12, left: "Aircraft Doors", right: "OPEN", validate: (d) => {
-    const val = d["sim/cockpit2/switches/door_open"];
-    if (Array.isArray(val)) {
-      return val[0] === 1
-    }
-    return val === 1;
-  } },
+  {
+    id: 12,
+    left: "Aircraft Doors",
+    right: "OPEN",
+    validate: (d) => {
+      const val = d["sim/cockpit2/switches/door_open"];
+      if (Array.isArray(val)) {
+        return val[0] === 1;
+      }
+      return val === 1;
+    },
+  },
   { id: 13, left: "Oxygen Quantity", right: "Check in green arc" },
   { id: 14, left: "Landing Gear Handle", right: "Down" },
   { id: 15, left: "Speebrake Handle", right: "Zero" },
@@ -306,7 +310,7 @@ export const cockpitPreparation: Data[] = [
     left: "Instrument Lights (FLOOD LTS, EL, LH, CTR)",
     right: "Set",
     isSub: true,
-    tooltip: "12 o'clock position suggested"
+    tooltip: "12 o'clock position suggested",
   },
   {
     id: 63,
@@ -426,14 +430,14 @@ export const cockpitPreparation: Data[] = [
     id: 82,
     left: "righthand panel lights (rh panel lights)",
     right: "set",
-    tooltip: "12 o'clock position suggested"
+    tooltip: "12 o'clock position suggested",
   },
   {
     id: 83,
     left: "",
     right: "",
     subtitle: "apu panel",
-    tooltip: "If no external power and/or desired"
+    tooltip: "If no external power and/or desired",
   },
   {
     id: 84,
@@ -445,7 +449,8 @@ export const cockpitPreparation: Data[] = [
     id: 85,
     left: "test button",
     right: "push",
-    tooltip: "Check APU announcements on Right Instrument/Cockpit Side Panel go ON and OFF.",
+    tooltip:
+      "Check APU announcements on Right Instrument/Cockpit Side Panel go ON and OFF.",
     isSub: true,
   },
   {
@@ -453,21 +458,22 @@ export const cockpitPreparation: Data[] = [
     left: "apu start",
     right: "up and let go",
     isSub: true,
-    tooltip: "Hold UP position until the APU starts running (10 RPM), then let go."
+    tooltip:
+      "Hold UP position until the APU starts running (10 RPM), then let go.",
   },
   {
     id: 87,
     left: "generator",
     right: "on",
     isSub: true,
-    tooltip: "After READY TO LOAD. Check APU AMPS on IP-L"
+    tooltip: "After READY TO LOAD. Check APU AMPS on IP-L",
   },
   {
     id: 88,
     left: "bleed air max cool",
     right: "on",
     isSub: true,
-    tooltip: "Enables to turn ON the pack"
+    tooltip: "Enables to turn ON the pack",
   },
   {
     id: 89,
@@ -496,20 +502,20 @@ export const cockpitPreparation: Data[] = [
   {
     id: 93,
     left: "ATC Flight Clearance (Delivery)",
-    right: "request"
+    right: "request",
   },
   {
     id: 93000,
     left: "FMC",
-    right: "SETUP"
-  }
+    right: "SETUP",
+  },
 ];
 
 export const preflightProcedure: Data[] = [
   {
     id: 94,
     left: "APU",
-    right: "Started"
+    right: "Started",
   },
   {
     id: 95,
@@ -520,7 +526,7 @@ export const preflightProcedure: Data[] = [
     id: 96,
     left: "External Power",
     right: "Disconnect and Off",
-    tooltip: "If connected"
+    tooltip: "If connected",
   },
   {
     id: 97,
@@ -531,7 +537,8 @@ export const preflightProcedure: Data[] = [
     id: 98,
     left: "Rotary Test (PED)",
     right: "Rotate to All Positions",
-    tooltip: "For each position, listen to ALL the different annunciators. During the FLAP test, FLAPS are extended"
+    tooltip:
+      "For each position, listen to ALL the different annunciators. During the FLAP test, FLAPS are extended",
   },
   {
     id: 99,
@@ -562,7 +569,8 @@ export const preflightProcedure: Data[] = [
     id: 104,
     left: "Vertical Navigation Mode (IP-U)",
     right: "FLC",
-    tooltip: "Suggested initially Flight Level Change (FLC) Mode. Select Speed according to desired Climb Schedule. Initial Speed 180 KIAS for an initial smooth climb."
+    tooltip:
+      "Suggested initially Flight Level Change (FLC) Mode. Select Speed according to desired Climb Schedule. Initial Speed 180 KIAS for an initial smooth climb.",
   },
   {
     id: 105,
@@ -600,12 +608,12 @@ export const preflightProcedure: Data[] = [
   {
     id: 111,
     left: "Heading (HDG) (PED AND PFD)",
-    right: "SET TO RUNWAY"
+    right: "SET TO RUNWAY",
   },
   {
     id: 112,
     left: "Altitude (ALT SEL) (PED and PFD)",
-    right: "Set to Cleared"
+    right: "Set to Cleared",
   },
   {
     id: 113,
@@ -615,9 +623,9 @@ export const preflightProcedure: Data[] = [
   {
     id: 114,
     left: "Minimums (PFD)",
-    right: "Set to 1,000 ft AGL"
-  }
-]
+    right: "Set to 1,000 ft AGL",
+  },
+];
 
 export const engineStart: Data[] = [
   {
@@ -628,7 +636,7 @@ export const engineStart: Data[] = [
   {
     id: 116,
     left: "GND REC/ANTI-COLL Lights (IP-L)",
-    right: "GND REC (Middle)"
+    right: "GND REC (Middle)",
   },
   {
     id: 117,
@@ -721,15 +729,15 @@ export const engineStart: Data[] = [
   {
     id: 132,
     left: "CKPC/CAB PAC",
-    right: "ON"
-  }
-]
+    right: "ON",
+  },
+];
 
 export const beforeTaxi: Data[] = [
   {
     id: 133,
     left: "PITOT/STATIC LH&RH",
-    right: "UP"
+    right: "UP",
   },
   {
     id: 134,
@@ -750,42 +758,43 @@ export const beforeTaxi: Data[] = [
     id: 137,
     left: "Flight Controls/Speedbrake",
     right: "test",
-    tooltip: "See on EICAS/CTRL POS Page"
+    tooltip: "See on EICAS/CTRL POS Page",
   },
   {
     id: 138,
     left: "Taxi Light",
-    right: "On"
+    right: "On",
   },
   {
     id: 139,
     left: "Taxi Clearance (Tower)",
-    right: "request"
-  }
+    right: "request",
+  },
 ];
 
 export const taxi: Data[] = [
   {
     id: 140,
     left: "Park Break",
-    right: "Release"
+    right: "Release",
   },
   {
     id: 141,
     left: "Throttle Lever",
     right: "For Taxi (Minimal)",
-    tooltip: "Ramps/Apron Area/Curves: 10 knots - Close to other aircrafts/vehicles/stands: 20 knots - Maximum: 30 knots"
+    tooltip:
+      "Ramps/Apron Area/Curves: 10 knots - Close to other aircrafts/vehicles/stands: 20 knots - Maximum: 30 knots",
   },
   {
     id: 142,
     left: "Throttle Lever",
-    right: "Reverse Test (while taxiing)"
+    right: "Reverse Test (while taxiing)",
   },
   {
     id: 143,
     left: "",
     right: "",
-    subtitle: "At Hold Point"
+    subtitle: "At Hold Point",
   },
   {
     id: 144,
@@ -802,8 +811,8 @@ export const taxi: Data[] = [
   {
     id: 146,
     left: "ATC Take-Off Clearance (Tower)",
-    right: "Request"
-  }
+    right: "Request",
+  },
 ];
 
 export const takeOff: Data[] = [
@@ -902,5 +911,88 @@ export const takeOff: Data[] = [
     left: "Yoke",
     right: "Rotate",
     isSub: true,
-  }
-]
+  },
+];
+
+export const afterTakeOffClimb: Data[] = [
+  {
+    id: 163,
+    left: "",
+    right: "",
+    subtitle: "@ Positive Rating Climb",
+  },
+  {
+    id: 164,
+    left: "Landing Gear Handle",
+    right: "Up",
+    isSub: true,
+  },
+  {
+    id: 165,
+    left: "",
+    right: "",
+    subtitle: "@ 1000 ft AGL",
+  },
+  {
+    id: 166,
+    left: "Autopilot",
+    right: "Engage",
+    isSub: true,
+    tooltip: "US FAA defines 500 ft as minimal altitude to engage autopilot",
+  },
+  {
+    id: 167,
+    left: "Vertical Navigation Mode",
+    right: "Intercept VNAV",
+    isSub: true,
+    tooltip: "If FLC, adjust Speed as desired",
+  },
+  {
+    id: 168,
+    left: "FLAPS Lever",
+    right: "UP AS REQUIRED",
+  },
+  {
+    id: 169,
+    left: "Throttle Lever",
+    right: "CLB POS (N1 ABOUT 90%)",
+  },
+  {
+    id: 170,
+    left: "",
+    right: "",
+    subtitle: "@ Transition Level",
+  },
+  {
+    id: 171,
+    left: "Altimeter",
+    right: "Set STD",
+    isSub: true,
+  },
+  { id: 172, left: "", right: "", subtitle: "@ FL100" },
+  { id: 173, left: "Landing Light", right: "Off", isSub: true },
+  { id: 174, left: "Seat Belts Lts", right: "Off or AS Needed", isSub: true },
+  {
+    id: 175,
+    left: "FLC Speed",
+    right: "Set for Schedule",
+    isSub: true,
+    tooltip:
+      "If VNAV intercepted, Speed will change automatically. Above 10,000 ft, there is no limit speed. Set to Max Climb Schedule Speed.",
+  },
+  { id: 176, left: "", right: "", subtitle: "APU Panel" },
+  { id: 177, left: "Bleed Air Max Cool", right: "Off", isSub: true },
+  { id: 178, left: "Generator", right: "Off", isSub: true },
+  { id: 179, left: "Apu Start", right: "Down", isSub: true },
+  {
+    id: 180,
+    left: "Master",
+    right: "Off",
+    isSub: true,
+    tooltip: "Wait APU RPM ZERO",
+  },
+  { id: 181, left: "", right: "", subtitle: "@ FL180" },
+  { id: 182, left: "Eng Sync", right: "FAN", isSub: true },
+  { id: 183, left: "ATC Transfer to Approach", right: "Proceed" },
+  { id: 184, left: "ATC Transfer to Center", right: "Proceed" },
+];
