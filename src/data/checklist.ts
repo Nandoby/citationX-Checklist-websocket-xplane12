@@ -724,3 +724,16 @@ export const engineStart: Data[] = [
     right: "ON"
   }
 ]
+
+export const beforeTaxi: Data[] = [
+  {
+    id: 133,
+    left: "PITOT/STATIC LH&RH",
+    right: "UP"
+  },
+  {
+    id: 134,
+    left: "Flaps",
+    right: "SET FOR TAKEOFF",
+  }
+]
