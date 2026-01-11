@@ -109,9 +109,12 @@ const App = () => {
 
   const getStats = (listId: string) => {
     const list = checklists[listId];
+    if (!list) return { checked: 0, total: 0 }
+
+    const realItems = list.filter((i) => !i.subtitle && i.left.trim() !== "");
     return {
-      checked: list.filter((i) => i.checked).length,
-      total: list.filter((i) => !i.subtitle).length,
+      checked: realItems.filter((i) => i.checked).length,
+      total: realItems.length,
     };
   };
 
