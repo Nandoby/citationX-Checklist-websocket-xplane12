@@ -804,4 +804,103 @@ export const taxi: Data[] = [
     left: "ATC Take-Off Clearance (Tower)",
     right: "Request"
   }
+];
+
+export const takeOff: Data[] = [
+  {
+    id: 147,
+    left: "",
+    right: "",
+    subtitle: "@ Hold Point",
+  },
+  {
+    id: 148,
+    left: "GND REC/ANTI-COLL Lights",
+    right: "UP (Strobe Lights On",
+    isSub: true,
+  },
+  {
+    id: 149,
+    left: "Landing Light",
+    right: "On",
+    isSub: true,
+  },
+  {
+    id: 150,
+    left: "Taxi Light",
+    right: "Off",
+    isSub: true,
+  },
+  {
+    id: 151,
+    left: "Transponder Mode",
+    right: "Press for ATC alt",
+    isSub: true,
+  },
+  {
+    id: 152,
+    left: "Weather Radar",
+    right: "On",
+    isSub: true,
+  },
+  {
+    id: 153,
+    left: "Park break",
+    right: "Release",
+    isSub: true,
+  },
+  {
+    id: 154,
+    left: "",
+    right: "",
+    subtitle: "@ Entering Runway and line up with the center line",
+  },
+  {
+    id: 155,
+    left: "Pedal brakes",
+    right: "Press",
+    isSub: true,
+  },
+  {
+    id: 156,
+    left: "Throttle Lever",
+    right: "40% N1",
+    isSub: true,
+  },
+  {
+    id: 157,
+    left: "Engines",
+    right: "Check Spool UP Simultaneously",
+    isSub: true,
+  },
+  {
+    id: 158,
+    left: "Pedal Brakes",
+    right: "Release",
+    isSub: true,
+  },
+  {
+    id: 159,
+    left: "Throttle Lever",
+    right: "Max Position",
+    isSub: true,
+  },
+  {
+    id: 160,
+    left: "Speed",
+    right: "Monitor V1&VR",
+    isSub: true,
+  },
+  {
+    id: 161,
+    left: "",
+    right: "",
+    subtitle: "@ VR SPEED",
+  },
+  {
+    id: 162,
+    left: "Yoke",
+    right: "Rotate",
+    isSub: true,
+  }
 ]
